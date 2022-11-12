@@ -13,7 +13,7 @@ if __name__ == '__main__':
     f = open("../奖项/全国工会系统先进集体/2018年/2018年全国工会系统先进集体_out.txt", "r", encoding='utf-8')
     lines = f.readlines()  # 读取全部内容
 
-    #需要更改
+    # 需要更改
     prize = '全国工会系统先进集体'
     prize_year = '2018年'
 

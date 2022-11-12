@@ -1,17 +1,6 @@
-
-
-from py2neo import Graph, Node, Relationship
-import pymysql
+from paddlenlp import Taskflow
 
 if __name__ == '__main__':
-    con = pymysql.connect(host='localhost', password='root', port=3306, user='root', charset='utf8',
-                          database='knowledge')  # 链接mysql数据库
-    cur = con.cursor()
-    query = "SELECT * FROM entity"  # 查询语句
-    cur.execute(query)
-    rows = cur.fetchall()
-
-    # 依次遍历结果集，发现每个元素，就是表中的一条记录，用一个元组来显示
-
-    for row in rows:
-        print(row)
+    schema = ['姓名', '部门', '职位']
+    ie = Taskflow('information_extraction', schema=schema)
+    print(ie('陈爱玲(女) 中铁五局集团路桥工程有限责任公司贵州双龙港水环境综合整治项目部党工委书记、经理'))

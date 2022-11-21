@@ -1,6 +1,6 @@
 from paddlenlp import Taskflow
 
 if __name__ == '__main__':
-    schema = ['姓名', '部门', '职位']
+    schema = ['姓名', '性别', '民族', '职位', '部门']
     ie = Taskflow('information_extraction', schema=schema)
-    print(ie('陈爱玲(女) 中铁五局集团路桥工程有限责任公司贵州双龙港水环境综合整治项目部党工委书记、经理'))
+    print(ie('中国铁路乌鲁木齐局集团有限公司库尔勒客运段和田一队“民族团结一家亲”号'))

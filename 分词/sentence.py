@@ -1,6 +1,33 @@
-
+import os
 from paddlenlp import Taskflow
+from collections import Counter
 
 if __name__ == '__main__':
-    seg = Taskflow("word_segmentation",mode="accurate")
-    print(seg("11978年10月召开的工会九大,是新时期我国工人运动和工会工作的新起点。邓小平同志向大会发表致词,高度评价了我国工人阶级和 工会在社会主义革命和建设中的重要贡献,深刻指明了工人阶级在新时期面临的新的历史使命,进一步阐明了新时期工会的地位作用和工会工作的方针任务。这篇致词是指导新时期我国工人运动和工会工作的纲领性文件,为加强工会自身建设、推进工会改革创新提供了坚实的理论和思想准备。"))
+    filePath = "./产业工会"  # 文件夹路径
+    fileList = os.listdir(filePath)
+    sentence_list = []
+    for file in fileList:
+        f = open(os.path.join(filePath, file),encoding='utf-8')
+        print(file)  # 文件名
+
+        while True:
+            line = f.readline()
+            if not line:
+                break
+            # 删除指定字符，strip('\n')删除换行符
+            line = line.strip('\n')
+            # 不传参数，默认删除换行符和空格。
+            # line =line.strip()
+            sentence_list.append(line)
+            # print(line)  # txt文件内容
+        f.close()
+
+
+    seg = Taskflow("word_segmentation",mode="accurate",user_dict="user_dict.txt")
+    s_list = seg(sentence_list)
+    se_list = []
+    for s in s_list:
+        se_list += s
+    print(se_list)
+    result = Counter(se_list)
+    print(result)

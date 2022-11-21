@@ -1,13 +1,11 @@
 from collections import Counter
 
 if __name__ == '__main__':
-
-
-    a = [[1, 2, 3, 1, 1, 2],[1, 2, 3, 1, 1, 2]]
-    b = []
-    for l in a:
-        b += l
-    print(b)
-    result = Counter(b)
-    print(result)
+    a = [('发展', '场景事件'),('发展', '场景事件')]
+    c = []
+    for b in a:
+        print(b)
+        print(b[0])
+        c.append(b[0])
+    print(c)
 

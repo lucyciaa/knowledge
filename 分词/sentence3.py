@@ -3,7 +3,7 @@ from paddlenlp import Taskflow
 from collections import Counter
 
 if __name__ == '__main__':
-    filePath = "./劳动理论"  # 文件夹路径
+    filePath = "./测试文件"  # 文件夹路径
     fileList = os.listdir(filePath)
     sentence_list = []
     for file in fileList:
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         f.close()
 
 
-    ner = Taskflow("ner",entity_only=True)
+    ner = Taskflow("ner",entity_only=True,user_dict="user_dict.txt")
     s_list = ner(sentence_list)
     print(s_list)
     se_list = []

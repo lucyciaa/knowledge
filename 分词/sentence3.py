@@ -4,10 +4,8 @@ from collections import Counter
 import time
 
 if __name__ == '__main__':
-    filePath = "./测试文件"  # 文件夹路径
-
     start_time = time.time()
-    filePath = "./测试文件"  # 文件夹路径
+    filePath = "./工会数据库"  # 文件夹路径
     fileList = os.listdir(filePath)
     sentence_list = []
     for file in fileList:

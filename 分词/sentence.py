@@ -3,7 +3,7 @@ from paddlenlp import Taskflow
 from collections import Counter
 
 if __name__ == '__main__':
-    filePath = "./产业工会"  # 文件夹路径
+    filePath = "产业工会"  # 文件夹路径
     fileList = os.listdir(filePath)
     sentence_list = []
     for file in fileList:
